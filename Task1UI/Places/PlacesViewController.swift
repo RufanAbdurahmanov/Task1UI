@@ -8,37 +8,49 @@
 import UIKit
 
 class PlacesViewController: UIViewController {
+    
     @IBOutlet private weak var collectionView: UICollectionView!
     
+    var countryID: Int!
+    
+//    {
+//       didSet {
+//           collectionView.register(UINib(nibName: cellID, bundle: nil), forCellWithReuseIdentifier: cellID)
+//       }
+//   }
+
     let cellID = "\(PlacesCollectionViewCell.self)"
     
-    var id: Int!
     var detailsID: Int!
     
     var country: Country2?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Places"
         
         collectionView.register(UINib(nibName: cellID, bundle: nil), forCellWithReuseIdentifier: cellID)
-    }    
+    }
+    
+    
 }
 
 extension PlacesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        country?.places.count ?? 0
+        return PlacesViewModel().placesCount(indexPath: countryID)
+        
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PlacesCollectionViewCell
-        cell.backgroundColor = .gray
-        cell.cityNameLabel.text = country?.places[indexPath.row].cityName
-        cell.titleLabel.text = country?.places[indexPath.row].title
+        
+        cell.cityNameLabel.text = CountryViewModel().cellAtIndexPath(indexPath: countryID).places[indexPath.row].cityName
+        cell.titleLabel.text = CountryViewModel().cellAtIndexPath(indexPath: countryID).places[indexPath.row].title
         cell.imageView.contentMode = .scaleAspectFill
-        cell.imageView.image = country?.places[indexPath.row].image
+        cell.imageView.image = CountryViewModel().cellAtIndexPath(indexPath: countryID).places[indexPath.row].image
+        
         return cell
     }
     
@@ -48,15 +60,14 @@ extension PlacesViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         detailsID = indexPath.row
-        performSegue(withIdentifier: "toDetailsVC", sender: nil)
+        
+        let detailsVC = storyboard?.instantiateViewController(withIdentifier: "DetailsVC") as! DetailsViewController
+        
+        detailsVC.placeID = indexPath.row
+        detailsVC.countryID = countryID
+        detailsVC.navigationItem.title = CountryViewModel().cellAtIndexPath(indexPath: countryID).places[indexPath.row].cityName
+        navigationController?.show(detailsVC, sender: nil)
+        
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetailsVC" {
-            let detailsVC = segue.destination as! DetailsViewController
-            if let place = country?.places[detailsID] {
-                detailsVC.place = place
-            }
-        }
-    }
 }

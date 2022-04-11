@@ -16,6 +16,11 @@
 		5C685BCC28000D1F00F11DE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C685BCA28000D1F00F11DE6 /* LaunchScreen.storyboard */; };
 		5C81CE7B2800169E00C5FFD3 /* CountryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C81CE792800169E00C5FFD3 /* CountryCollectionViewCell.swift */; };
 		5C81CE7C2800169E00C5FFD3 /* CountryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C81CE7A2800169E00C5FFD3 /* CountryCollectionViewCell.xib */; };
+		5C9C1F4D280452D900B7A565 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C1F4C280452D900B7A565 /* CountryViewModel.swift */; };
+		5C9C1F4F2804567300B7A565 /* PlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C1F4E2804567300B7A565 /* PlacesViewModel.swift */; };
+		5C9C1F5128045D3E00B7A565 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C1F5028045D3E00B7A565 /* DetailsViewModel.swift */; };
+		5C9C1F59280469B000B7A565 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C1F57280469B000B7A565 /* DetailTableViewCell.swift */; };
+		5C9C1F5A280469B000B7A565 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C9C1F58280469B000B7A565 /* DetailTableViewCell.xib */; };
 		5C9EA07828002DDB00C738A3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EA07728002DDB00C738A3 /* Model.swift */; };
 		5C9EA07A280064CC00C738A3 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EA079280064CC00C738A3 /* PlacesViewController.swift */; };
 		5C9EA07F2800661200C738A3 /* PlacesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EA07D2800661200C738A3 /* PlacesCollectionViewCell.swift */; };
@@ -34,6 +39,11 @@
 		5C685BCD28000D1F00F11DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C81CE792800169E00C5FFD3 /* CountryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCollectionViewCell.swift; sourceTree = "<group>"; };
 		5C81CE7A2800169E00C5FFD3 /* CountryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCollectionViewCell.xib; sourceTree = "<group>"; };
+		5C9C1F4C280452D900B7A565 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
+		5C9C1F4E2804567300B7A565 /* PlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModel.swift; sourceTree = "<group>"; };
+		5C9C1F5028045D3E00B7A565 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		5C9C1F57280469B000B7A565 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailTableViewCell.swift; path = ../DetailTableViewCell.swift; sourceTree = "<group>"; };
+		5C9C1F58280469B000B7A565 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DetailTableViewCell.xib; path = ../DetailTableViewCell.xib; sourceTree = "<group>"; };
 		5C9EA07728002DDB00C738A3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		5C9EA079280064CC00C738A3 /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		5C9EA07D2800661200C738A3 /* PlacesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -89,6 +99,7 @@
 			children = (
 				5C685BC328000D1E00F11DE6 /* ViewController.swift */,
 				5C81CE7E280016FC00C5FFD3 /* Cell */,
+				5C9C1F4C280452D900B7A565 /* CountryViewModel.swift */,
 			);
 			path = Country;
 			sourceTree = "<group>";
@@ -119,11 +130,21 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5C9C1F562804614A00B7A565 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				5C9C1F57280469B000B7A565 /* DetailTableViewCell.swift */,
+				5C9C1F58280469B000B7A565 /* DetailTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		5C9EA07B280064F200C738A3 /* Places */ = {
 			isa = PBXGroup;
 			children = (
-				5C9EA079280064CC00C738A3 /* PlacesViewController.swift */,
 				5C9C1F282803ED5900B7A565 /* cell */,
+				5C9EA079280064CC00C738A3 /* PlacesViewController.swift */,
+				5C9C1F4E2804567300B7A565 /* PlacesViewModel.swift */,
 			);
 			path = Places;
 			sourceTree = "<group>";
@@ -131,7 +152,9 @@
 		5C9EA07C280064FA00C738A3 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				5C9C1F5028045D3E00B7A565 /* DetailsViewModel.swift */,
 				5C16F2B12801E3F40048ADAD /* DetailsViewController.swift */,
+				5C9C1F562804614A00B7A565 /* cell */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -198,6 +221,7 @@
 				5C81CE7C2800169E00C5FFD3 /* CountryCollectionViewCell.xib in Resources */,
 				5C9EA0802800661200C738A3 /* PlacesCollectionViewCell.xib in Resources */,
 				5C685BC928000D1F00F11DE6 /* Assets.xcassets in Resources */,
+				5C9C1F5A280469B000B7A565 /* DetailTableViewCell.xib in Resources */,
 				5C685BC728000D1E00F11DE6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,11 +233,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C9C1F4F2804567300B7A565 /* PlacesViewModel.swift in Sources */,
 				5C9EA07A280064CC00C738A3 /* PlacesViewController.swift in Sources */,
 				5C685BC428000D1E00F11DE6 /* ViewController.swift in Sources */,
 				5C81CE7B2800169E00C5FFD3 /* CountryCollectionViewCell.swift in Sources */,
+				5C9C1F4D280452D900B7A565 /* CountryViewModel.swift in Sources */,
 				5C16F2B22801E3F40048ADAD /* DetailsViewController.swift in Sources */,
+				5C9C1F59280469B000B7A565 /* DetailTableViewCell.swift in Sources */,
 				5C685BC028000D1E00F11DE6 /* AppDelegate.swift in Sources */,
+				5C9C1F5128045D3E00B7A565 /* DetailsViewModel.swift in Sources */,
 				5C685BC228000D1E00F11DE6 /* SceneDelegate.swift in Sources */,
 				5C9EA07828002DDB00C738A3 /* Model.swift in Sources */,
 				5C9EA07F2800661200C738A3 /* PlacesCollectionViewCell.swift in Sources */,

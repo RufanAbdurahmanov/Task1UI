@@ -8,10 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     @IBOutlet private weak var collectionView: UICollectionView!
-            
-    var tappedID: Int!
+    
     var countryList = [Country2]()
     let cellIdentifier = "\(CountryCollectionViewCell.self)"
     
@@ -20,11 +18,11 @@ class ViewController: UIViewController {
         
         navigationItem.title = "Countries"
         
-        countryList = countries2()
+        countryList = ViewController.countries2()
         collectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
     }
     
-    func countries2() -> [Country2] {
+    static func countries2() -> [Country2] {
         return [
             Country2(countryName: "Azerbaijan", capitalCity: "Baku", populaiton: "10 000 000", places: [Place.init(title: "Most Beautiful City of Azerbaijan", cityName: "Baku", image: UIImage(named: "baku"), details: Detail(imageName: "baku", description: " Baku is located 28 metres (92 ft) below sea level, which makes it the lowest lying national capital in the world and also the largest city in the world located below sea level. Baku lies on the southern shore of the Absheron Peninsula, alongside the Bay of Baku. At the beginning of 2009, Baku's urban population was estimated at just over two million people.[10] Officially, about 25% of all inhabitants of the country live in Baku's metropolitan area. Baku is the sole metropolis in Azerbaijan.")), Place.init(title: "Nakhchivan Autonomous Republic", cityName: "Nakhchivan", image: UIImage(named: "nakhchivan"), details: Detail(imageName: "nakhchivan", description: "The Nakhchivan Autonomous Republic (Azerbaijani: Naxçıvan Muxtar Respublikası, pronounced [nɑxtʃɯˈvɑn muxˈtɑɾ ɾesˈpublikɑsɯ]), also known as Nakhichevan,[2] is a landlocked exclave of the Republic of Azerbaijan. The region covers 5,502.75 km2 (2,124.62 sq mi)[3] with a population of 459,600[4] bordered by Armenia[a] to the east and north, Iran[b] to the southwest, and Turkey[c] to the west.")), Place.init(title: "The Historical City in Azerbaijan", cityName: "Sheki", image: UIImage(named: "sheki"), details: Detail(imageName: "sheki", description: "Shaki (Azerbaijani: Şəki) is a city in northwestern Azerbaijan, surrounded by the district of the same name. It is located on the southern part of the Greater Caucasus mountain range, 240 km (150 mi) from Baku. As of 2020, it has a population of 68,400.[2] The center of the city and the Palace of Shaki Khans were inscribed in the UNESCO World Heritage List in 2019 because of its unique architecture and its history as an important trading center along the Silk Road.[3]")), Place.init(title: "Beautiful City in Azerbaijan", cityName: "Quba", image: UIImage(named: "quba"), details: Detail(imageName: "quba", description: "Quba (Guba) is a city and the administrative centre of the Quba District of Azerbaijan. The city lies on the north-eastern slopes of Shahdag mountain, at an altitude of 600 metres above sea level, on the right bank of the Kudyal river. It has a population of 38,100 (2010)."))]),
             Country2(countryName: "Turkey", capitalCity: "Ankara", populaiton: "84 000 000", places: [Place.init(title: "Ankara is the Capital of Turkey", cityName: "Ankara", image: UIImage(named: "ankara"), details: Detail(imageName: "ankara", description: "Ankara (/ˈæŋkərə/ ANK-ə-rə, US also /ˈɑːŋ-/ AHNK-ə-rə; Turkish: [ˈaŋkaɾa] (audio speaker iconlisten)),[a] historically known as Ancyra[b] (Greek: Άγκυρα) and Angora,[13][c] is the capital of Turkey. Located in the central part of Anatolia, the city has a population of 5.1 million in its urban center and over 5.7 million in Ankara Province,[6][4] making it Turkey's second-largest city after Istanbul.")), Place.init(title: "Istanbul is Beautiful City", cityName: "Istanbul", image: UIImage(named: "istanbul"), details: Detail(imageName: "istanbul", description: "The city was founded as Byzantium (Byzantion) in the 7th century BC by Greek settlers from Megara.[9] In 330 CE, the Roman emperor Constantine the Great made it his imperial capital, renaming it first as New Rome (Nova Roma)[10] and then as Constantinople (Constantinopolis) after himself.[10][11] The city grew in size and influence, eventually becoming a beacon of the Silk Road and one of the most important cities in history.")), Place.init(title: "Beautiful City in Turkey", cityName: "Denizli", image: UIImage(named: "denizli"), details: Detail(imageName: "denizli", description: "The city lived in peace for centuries without being involved in wars in a direct manner. Following World War I during the Independence War, the Greek forces managed to come as close as Sarayköy, a small town 20 km (12 mi) northwest of Denizli, but did not venture into Denizli. The most widespread symbols of Denizli province are of textile industry.[citation needed]")), Place.init(title: "Sogut is Historical City", cityName: "Sogut", image: UIImage(named: "sogut"), details: Detail(imageName: "sogut", description: "The name of the settlement is first attested under the Greek name Thêbásion in 13th century. According to Ottoman cadastral record books of 1487 in Hüdavendigâr area the town was registered under the Turkish name Beğsöğüdü or Bey Söğüdü, and this name took the form Söğüd in government records after the first half of the 17th century. According to Sevan Nişanyan during the 15th and 16th centuries Söğüd was used the describe the kazâ, meanwhile Beğsöğüdü was used to mean the central settlement of that kazâ. He also proposed that the Greek name, if loaned to Turkish, must have been evolved to Sivad or Sivas, which in turn might be the source of the later Turkish names.[3]"))]),
@@ -37,32 +35,27 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return countryList.count
+        return CountryViewModel().countryCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CountryCollectionViewCell
         
-        cell.countryName.text = countryList[indexPath.row].countryName
-        cell.capitalCity.text = countryList[indexPath.row].capitalCity
-        cell.population.text = countryList[indexPath.row].populaiton
+        cell.countryName.text = CountryViewModel().cellAtIndexPath(indexPath: indexPath.row).countryName
+        cell.capitalCity.text = CountryViewModel().cellAtIndexPath(indexPath: indexPath.row).capitalCity
+        cell.population.text = CountryViewModel().cellAtIndexPath(indexPath: indexPath.row).populaiton
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width * 0.92, height: 72)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toPlacesVC" {
-            let placesVC = segue.destination as! PlacesViewController
-            placesVC.country = countryList[tappedID]
-            placesVC.id = tappedID
-        }
-    }
+
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        tappedID = indexPath.row
-        performSegue(withIdentifier: "toPlacesVC", sender: nil)
+        let placesVC = storyboard?.instantiateViewController(withIdentifier: "PlacesVC") as! PlacesViewController
+        placesVC.countryID = indexPath.row
+        placesVC.country = countryList[indexPath.row]
+        navigationController?.show(placesVC, sender: nil)
     }
 }
