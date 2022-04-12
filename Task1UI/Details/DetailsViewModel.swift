@@ -9,11 +9,10 @@ import Foundation
 
 
 struct DetailsViewModel {
+    var place: Place?
     
-    func showDetails (countryID: Int, placesID: Int) -> Detail {
-        return ViewController.countries2()[countryID].places[placesID].details
+    
+    func showDetails () -> Detail? {
+        return place?.details
     }
-    
-    
-    
 }

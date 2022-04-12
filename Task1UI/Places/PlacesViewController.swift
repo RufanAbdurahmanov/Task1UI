@@ -8,23 +8,10 @@
 import UIKit
 
 class PlacesViewController: UIViewController {
-    
     @IBOutlet private weak var collectionView: UICollectionView!
     
-    var countryID: Int!
-    
-//    {
-//       didSet {
-//           collectionView.register(UINib(nibName: cellID, bundle: nil), forCellWithReuseIdentifier: cellID)
-//       }
-//   }
-
+    var viewModel = PlacesViewModel()
     let cellID = "\(PlacesCollectionViewCell.self)"
-    
-    var detailsID: Int!
-    
-    var country: Country2?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,24 +19,22 @@ class PlacesViewController: UIViewController {
         
         collectionView.register(UINib(nibName: cellID, bundle: nil), forCellWithReuseIdentifier: cellID)
     }
-    
-    
 }
 
 extension PlacesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return PlacesViewModel().placesCount(indexPath: countryID)
-        
+        return viewModel.placesCount()
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PlacesCollectionViewCell
         
-        cell.cityNameLabel.text = CountryViewModel().cellAtIndexPath(indexPath: countryID).places[indexPath.row].cityName
-        cell.titleLabel.text = CountryViewModel().cellAtIndexPath(indexPath: countryID).places[indexPath.row].title
-        cell.imageView.contentMode = .scaleAspectFill
-        cell.imageView.image = CountryViewModel().cellAtIndexPath(indexPath: countryID).places[indexPath.row].image
+        if let place = viewModel.placeAtSelectedItem(index: indexPath.row) {
+            cell.cityNameLabel.text = place.cityName
+            cell.titleLabel.text = place.title
+            cell.imageView.contentMode = .scaleAspectFill
+            cell.imageView.image = place.image
+        }
         
         return cell
     }
@@ -59,15 +44,8 @@ extension PlacesViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        detailsID = indexPath.row
-        
         let detailsVC = storyboard?.instantiateViewController(withIdentifier: "DetailsVC") as! DetailsViewController
-        
-        detailsVC.placeID = indexPath.row
-        detailsVC.countryID = countryID
-        detailsVC.navigationItem.title = CountryViewModel().cellAtIndexPath(indexPath: countryID).places[indexPath.row].cityName
+        detailsVC.viewModel.place = viewModel.placeAtSelectedItem(index: indexPath.row)
         navigationController?.show(detailsVC, sender: nil)
-        
     }
-    
 }

@@ -9,8 +9,27 @@ import UIKit
 
 class DetailTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var cityImageView: UIImageView!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak private var cityImageView: UIImageView!
+    @IBOutlet weak private var descLabel: UILabel!
+    
+    var imageName: String! {
+        set {
+            cityImageView.image = UIImage(named: newValue)
+        }
+        get {
+            return " "
+        }
+    }
+    
+    var descText: String! {
+        set {
+            descLabel.text = newValue
+        }
+        get {
+            return descLabel.text
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -7,22 +7,14 @@
 
 import Foundation
 
-
 struct PlacesViewModel {
+    var country: Country2?
     
-    
-    func placesCount(indexPath: Int) -> Int {
-        return ViewController.countries2()[indexPath].places.count
+    func placesCount() -> Int {
+        return country?.places.count ?? 0
     }
     
-    func placeAtSelectedItem(indexPath: Int, id: Int) -> Place {
-        
-        return ViewController.countries2()[indexPath].places[id]
-
+    func placeAtSelectedItem(index: Int) -> Place? {
+        return country?.places[index]
     }
-    
-    
-    
-    
-    
 }

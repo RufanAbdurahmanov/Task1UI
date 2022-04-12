@@ -97,8 +97,8 @@
 		5C81CE7D280016B800C5FFD3 /* Country */ = {
 			isa = PBXGroup;
 			children = (
-				5C685BC328000D1E00F11DE6 /* ViewController.swift */,
 				5C81CE7E280016FC00C5FFD3 /* Cell */,
+				5C685BC328000D1E00F11DE6 /* ViewController.swift */,
 				5C9C1F4C280452D900B7A565 /* CountryViewModel.swift */,
 			);
 			path = Country;
@@ -143,8 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				5C9C1F282803ED5900B7A565 /* cell */,
-				5C9EA079280064CC00C738A3 /* PlacesViewController.swift */,
 				5C9C1F4E2804567300B7A565 /* PlacesViewModel.swift */,
+				5C9EA079280064CC00C738A3 /* PlacesViewController.swift */,
 			);
 			path = Places;
 			sourceTree = "<group>";
@@ -152,9 +152,9 @@
 		5C9EA07C280064FA00C738A3 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				5C9C1F562804614A00B7A565 /* cell */,
 				5C9C1F5028045D3E00B7A565 /* DetailsViewModel.swift */,
 				5C16F2B12801E3F40048ADAD /* DetailsViewController.swift */,
-				5C9C1F562804614A00B7A565 /* cell */,
 			);
 			path = Details;
 			sourceTree = "<group>";
