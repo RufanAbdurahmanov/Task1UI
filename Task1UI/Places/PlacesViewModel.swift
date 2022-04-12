@@ -8,7 +8,7 @@
 import Foundation
 
 struct PlacesViewModel {
-    var country: Country2?
+    var country: CountryList?
     
     func placesCount() -> Int {
         return country?.places.count ?? 0

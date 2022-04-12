@@ -7,15 +7,17 @@
 
 import UIKit
 
-class CountryCollectionViewCell: UICollectionViewCell {
+class CountryCollectionViewCell: UICollectionViewCell {    
+    @IBOutlet weak private var countryName: UILabel!
+    @IBOutlet weak private var capitalCity: UILabel!
+    @IBOutlet weak private var population: UILabel!
     
-    @IBOutlet weak var countryName: UILabel!
-    @IBOutlet weak var capitalCity: UILabel!
-    @IBOutlet weak var population: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func configureUI(countries: CountryList) {
+        countryName.text = countries.countryName
+        capitalCity.text = countries.capitalCity
+        population.text = countries.population
     }
+   
 
 }

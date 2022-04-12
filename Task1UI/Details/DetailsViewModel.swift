@@ -11,8 +11,7 @@ import Foundation
 struct DetailsViewModel {
     var place: Place?
     
-    
-    func showDetails () -> Detail? {
+    func showDetails() -> Details? {
         return place?.details
     }
 }

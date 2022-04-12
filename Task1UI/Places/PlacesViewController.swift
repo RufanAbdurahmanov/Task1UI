@@ -29,12 +29,7 @@ extension PlacesViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PlacesCollectionViewCell
         
-        if let place = viewModel.placeAtSelectedItem(index: indexPath.row) {
-            cell.cityNameLabel.text = place.cityName
-            cell.titleLabel.text = place.title
-            cell.imageView.contentMode = .scaleAspectFill
-            cell.imageView.image = place.image
-        }
+        cell.configure(place: viewModel.placeAtSelectedItem(index: indexPath.row)!)
         
         return cell
     }

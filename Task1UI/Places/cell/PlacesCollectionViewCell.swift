@@ -9,15 +9,21 @@ import UIKit
 
 class PlacesCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak private var imageView: UIImageView!
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var cityNameLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    func configure(place: Place) {
+        
+        imageView.image = UIImage(named: place.image)
+        titleLabel.text = place.title
+        cityNameLabel.text = place.cityName
         
         
     }
+    
+    
+    
 
 }

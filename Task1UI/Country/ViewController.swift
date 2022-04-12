@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     
     private let viewModel = CountryViewModel()
+    
     let cellIdentifier = "\(CountryCollectionViewCell.self)"
     
     override func viewDidLoad() {
@@ -28,10 +29,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CountryCollectionViewCell
-        
-        cell.countryName.text = viewModel.cellAtIndexPath(indexPath: indexPath.row).countryName
-        cell.capitalCity.text = viewModel.cellAtIndexPath(indexPath: indexPath.row).capitalCity
-        cell.population.text = viewModel.cellAtIndexPath(indexPath: indexPath.row).populaiton
+        cell.configureUI(countries: viewModel.cellAtIndexPath(indexPath: indexPath.row))        
         return cell
     }
     

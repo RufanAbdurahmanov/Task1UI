@@ -7,32 +7,29 @@
 
 import Foundation
 import UIKit
-//
-//struct Country {
-//
-//    let countryName: String!
-//    let capitalCity: String!
-//    let populaiton: String!
-//
-//}
-//
-////---------------------------------------------------------------------
 
-struct Country2 {
-    let countryName: String!
-    let capitalCity: String!
-    let populaiton: String!
-    let places: [Place]!
+struct CountryList: Codable {
+    let countryName, capitalCity, population: String
+    let places: [Place]
 }
 
-public struct Place {
-    let title: String!
-    let cityName: String!
-    let image: UIImage!
-    let details: Detail!
+// MARK: - Place
+struct Place: Codable {
+    let title, cityName, image: String
+    let details: Details
 }
 
-struct Detail {
-    var imageName: String!
-    let description: String!
+// MARK: - Details
+struct Details: Codable {
+    let imageName, detailsDescription: String
+
+    enum CodingKeys: String, CodingKey {
+        case imageName
+        case detailsDescription = "description"
+    }
 }
+
+
+
+
+

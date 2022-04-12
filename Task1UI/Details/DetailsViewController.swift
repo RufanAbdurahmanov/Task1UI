@@ -31,8 +31,7 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableCellID, for: indexPath) as! DetailTableViewCell
         if let detail = viewModel.showDetails() {
-            cell.descText = detail.description
-            cell.imageName = detail.imageName
+            cell.configure(data: detail)
         }
         return cell
     }
