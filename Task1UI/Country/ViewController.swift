@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import JGProgressHUD
 
+ 
 class ViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
-    
-    private let viewModel = CountryViewModel()
+    private var toolbarHUD: UIToolbar?
+    private let viewModel = CountryViewModel.shared
     
     let cellIdentifier = "\(CountryCollectionViewCell.self)"
     
@@ -19,17 +21,30 @@ class ViewController: UIViewController {
         
         navigationItem.title = "Countries"        
         collectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
+        viewModel.getDatas()
+        animateProgress()
+    }
+    func animateProgress() {
+        
+        let hud = JGProgressHUD()
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        hud.backgroundColor = .black
+        hud.layer.opacity = 0.5
+        hud.dismiss(afterDelay: 2.5)
     }
 }
+     
+
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.countryCount()
+        return viewModel.numberOfCountries()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CountryCollectionViewCell
-        cell.configureUI(countries: viewModel.cellAtIndexPath(indexPath: indexPath.row))        
+        cell.configureUI(countries: viewModel.itemAtCell(index: indexPath.row)) 
         return cell
     }
     
@@ -39,7 +54,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let placesVC = storyboard?.instantiateViewController(withIdentifier: "PlacesVC") as! PlacesViewController
-        placesVC.viewModel.country = viewModel.cellAtIndexPath(indexPath: indexPath.row)
+        placesVC.countryID = viewModel.itemAtCell(index: indexPath.row).id
         navigationController?.show(placesVC, sender: nil)
     }
 }

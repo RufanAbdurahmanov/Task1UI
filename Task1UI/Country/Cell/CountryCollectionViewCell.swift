@@ -16,7 +16,7 @@ class CountryCollectionViewCell: UICollectionViewCell {
     func configureUI(countries: CountryList) {
         countryName.text = countries.countryName
         capitalCity.text = countries.capitalCity
-        population.text = countries.population
+        population.text = "\(countries.population)"
     }
    
 

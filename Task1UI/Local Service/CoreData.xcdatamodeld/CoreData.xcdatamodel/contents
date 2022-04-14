@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CountriesEntity" representedClassName=".CountriesEntity" syncable="YES">
+        <attribute name="capitalCity" optional="YES" attributeType="String"/>
+        <attribute name="countryName" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="population" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="PlacesEntity" representedClassName=".PlacesEntity" syncable="YES">
+        <attribute name="cityDescription" optional="YES" attributeType="String"/>
+        <attribute name="cityID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cityName" optional="YES" attributeType="String"/>
+        <attribute name="cityTitle" optional="YES" attributeType="String"/>
+        <attribute name="countryID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="CountriesEntity" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="PlacesEntity" positionX="-54" positionY="18" width="128" height="119"/>
+    </elements>
+</model>

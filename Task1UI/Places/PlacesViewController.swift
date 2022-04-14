@@ -12,12 +12,14 @@ class PlacesViewController: UIViewController {
     
     var viewModel = PlacesViewModel()
     let cellID = "\(PlacesCollectionViewCell.self)"
+    var countryID: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Places"
         
         collectionView.register(UINib(nibName: cellID, bundle: nil), forCellWithReuseIdentifier: cellID)
+        viewModel.getPlaces(countryID: countryID)
     }
 }
 
@@ -28,9 +30,7 @@ extension PlacesViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PlacesCollectionViewCell
-        
         cell.configure(place: viewModel.placeAtSelectedItem(index: indexPath.row)!)
-        
         return cell
     }
     

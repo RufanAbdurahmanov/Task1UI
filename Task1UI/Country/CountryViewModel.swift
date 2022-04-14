@@ -8,14 +8,20 @@
 import UIKit
 import Foundation
 
-struct CountryViewModel {
-    var countyList = DataLoader.shared.countriesList
+class CountryViewModel {
+    static let shared = CountryViewModel()
+    var dataItems = [CountryList]()
     
-    func countryCount() -> Int {
-        return countyList.count
+    func getDatas() {
+        CoreDataHelper.shared.insertCountriesData()
+        dataItems = CoreDataHelper.shared.fetchCountryList() ?? []
     }
     
-    func cellAtIndexPath(indexPath: Int) -> CountryList {
-        return countyList[indexPath]
+    func numberOfCountries() -> Int {
+        return dataItems.count
+    }
+    
+    func itemAtCell(index: Int) -> CountryList {
+        return dataItems[index]
     }
 }

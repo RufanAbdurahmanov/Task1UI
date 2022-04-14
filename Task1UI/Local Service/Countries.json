@@ -1,11 +1,13 @@
 
 [
-   {
-       "countryName": "Azerbaijan",
+    {
+        "id": 1,
+        "countryName": "Azerbaijan",
         "capitalCity": "Baku",
-        "population": "10 000 000",
+        "population": 10000000,
         "places": [
             {
+                "cityID": 1,
                 "title": "Most Beautiful City in Azerbaijan",
                 "cityName": "Baku",
                 "image": "baku",
@@ -16,6 +18,7 @@
                 }
             },
             {
+                "cityID": 2,
                 "title": "Nakhchivan Autonomous Republic",
                 "cityName": "Nakhchivan",
                 "image": "nakhchivan",
@@ -26,6 +29,7 @@
                 }
             },
             {
+                "cityID": 3,
                 "title": "The Historical City of Azerbaijan",
                 "cityName": "Sheki",
                 "image": "sheki",
@@ -36,6 +40,7 @@
                 }
             },
             {
+                "cityID": 4,
                 "title": "Beautiful City in Azerbaijan",
                 "cityName": "Quba",
                 "image": "quba",
@@ -46,13 +51,15 @@
                 }
             }
         ]
-   },
-   {
-       "countryName": "Turkey",
+    },
+    {
+        "id": 2,
+        "countryName": "Turkey",
         "capitalCity": "Ankara",
-        "population": "84 000 000",
+        "population": 84000000,
         "places": [
             {
+                "cityID": 1,
                 "title": "Ankara is The Capital of Turkey",
                 "cityName": "Ankara",
                 "image": "ankara",
@@ -63,6 +70,7 @@
                 }
             },
             {
+                "cityID": 2,
                 "title": "Istanbul is Beautiful City",
                 "cityName": "Istanbul",
                 "image": "istanbul",
@@ -73,6 +81,7 @@
                 }
             },
             {
+                "cityID": 3,
                 "title": "Beautiful City in Turkey",
                 "cityName": "Denizli",
                 "image": "denizli",
@@ -83,6 +92,7 @@
                 }
             },
             {
+                "cityID": 4,
                 "title": "Izmir is Beautiful City",
                 "cityName": "Izmir",
                 "image": "izmir",
@@ -93,13 +103,15 @@
                 }
             }
         ]
-   },
-   {
-       "countryName": "Russia",
+    },
+    {
+        "id": 3,
+        "countryName": "Russia",
         "capitalCity": "Moscow",
-        "population": "114 000 000",
+        "population": 114000000,
         "places": [
             {
+                "cityID": 1,
                 "title": "Moscow is Beautiful City",
                 "cityName": "Moscow",
                 "image": "moscow",
@@ -110,6 +122,7 @@
                 }
             },
             {
+                "cityID": 2,
                 "title": "Saint Petersburg is Cold City",
                 "cityName": "Saint Petersburg",
                 "image": "saintpetersburg",
@@ -120,8 +133,9 @@
                 }
             },
             {
-                "title": "Novosibirsk is Cold",
-                "cityName": "Novosibirsk",
+                "cityID": 3,
+                "title": "Novosibirisk is Cold",
+                "cityName": "Novosibirisk",
                 "image": "novosibirsk",
                 "details":
                 {
@@ -130,6 +144,7 @@
                 }
             },
             {
+                "cityID": 4,
                 "title": "One of the Top 5 City of Russia",
                 "cityName": "Yekaterinburg",
                 "image": "yekaterinburg",
@@ -140,13 +155,15 @@
                 }
             }
         ]
-   },
-   {
-       "countryName": "USA",
+    },
+    {
+        "id": 4,
+        "countryName": "USA",
         "capitalCity": "Washington",
-        "population": "329 000 000",
+        "population": 329000000,
         "places": [
             {
+                "cityID": 1,
                 "title": "Los Angeles is My Favorite City",
                 "cityName": "Los Angeles",
                 "image": "losangeles",
@@ -157,6 +174,7 @@
                 }
             },
             {
+                "cityID": 2,
                 "title": "City in California",
                 "cityName": "San Francisco",
                 "image": "sanfrancisco",
@@ -167,6 +185,7 @@
                 }
             },
             {
+                "cityID": 3,
                 "title": "Las Vegas is Beautiful",
                 "cityName": "Las Vegas",
                 "image": "lasvegas",
@@ -177,6 +196,7 @@
                 }
             },
             {
+                "cityID": 4,
                 "title": "New York is Beautiful",
                 "cityName": "New York",
                 "image": "newyork",
@@ -187,13 +207,15 @@
                 }
             }
         ]
-   },
-   {
-       "countryName": "Canada",
+    },
+    {
+        "id": 5,
+        "countryName": "Canada",
         "capitalCity": "Ottawa",
-        "population": "38 000 000",
+        "population": 38000000,
         "places": [
             {
+                "cityID": 1,
                 "title": "Toronto is Beautiful City",
                 "cityName": "Toronto",
                 "image": "toronto",
@@ -204,6 +226,7 @@
                 }
             },
             {
+                "cityID": 2,
                 "title": "City in Ontario, Canada",
                 "cityName": "Ottawa",
                 "image": "ottawa",
@@ -214,6 +237,7 @@
                 }
             },
             {
+                "cityID": 3,
                 "title": "Student City in Canada",
                 "cityName": "Montreal",
                 "image": "montreal",
@@ -224,6 +248,7 @@
                 }
             },
             {
+                "cityID": 4,
                 "title": "Hot City in British Columbia, Canada",
                 "cityName": "Vancouver",
                 "image": "vancouver",
@@ -234,6 +259,6 @@
                 }
             }
         ]
-   }
+    }
 ]
-  
+

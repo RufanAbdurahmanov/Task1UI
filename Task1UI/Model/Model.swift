@@ -9,12 +9,15 @@ import Foundation
 import UIKit
 
 struct CountryList: Codable {
-    let countryName, capitalCity, population: String
-    let places: [Place]
+    let id: Int
+    var countryName, capitalCity: String
+    var population: Int
+    let places: [Place]?
 }
 
 // MARK: - Place
 struct Place: Codable {
+    let cityID: Int
     let title, cityName, image: String
     let details: Details
 }

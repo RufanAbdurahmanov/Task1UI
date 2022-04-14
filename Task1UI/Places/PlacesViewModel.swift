@@ -7,14 +7,19 @@
 
 import Foundation
 
-struct PlacesViewModel {
+class PlacesViewModel {
+    var itemList = [Place]()
     var country: CountryList?
     
+    func getPlaces(countryID: Int) {
+        itemList = CoreDataHelper.shared.fetchPlaces(countryId: countryID)!
+    }
+    
     func placesCount() -> Int {
-        return country?.places.count ?? 0
+        itemList.count
     }
     
     func placeAtSelectedItem(index: Int) -> Place? {
-        return country?.places[index]
+        itemList[index]
     }
 }
